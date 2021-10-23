@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import styles from '../styles/style.module.css'
 import Layout from '../components/layouts/Layout'
+import Navbar from '../components/navbars/Navbar'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Navbar/>
       <main id={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a id={styles.a} href="https://nextjs.org">JavaScript Capstone Project!</a>
@@ -64,6 +66,20 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
         </a>
       </footer>
+      <style jsx global>{`
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+                    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+                    sans-serif;
+            }
+        
+        * {
+            box-sizing: border-box;
+        }
+      `}</style>
     </div>
   )
 }
