@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../../styles/components/navbars/Navbar.module.css'
+import { ToggleSlider }  from "react-toggle-slider";
 
 export default function Navbar() {
     return (
@@ -9,7 +10,9 @@ export default function Navbar() {
                     <span>StudySite</span>
                 </div>
                 <div className = {styles.right_elements}>
-                    =
+                    <ToggleSlider 
+                        barBackgroundColorActive="#2A3C46"
+                    />
                 </div>
             </nav>
         </header>
