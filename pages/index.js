@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/style.module.css'
+import styles from '../styles/style.module.scss'
 import Layout from '../components/layouts/Layout'
 import Navbar from '../components/navbars/Navbar'
 
@@ -29,8 +29,19 @@ export default function Home() {
       <Navbar />
       <main id={styles.main}>
           <div className={styles.main_container}>
-            Working area
-            <div className={styles.timer}></div>
+            <div className={styles.timer}>
+              <span className={styles.digits}>1:45</span>
+            </div>
+            <div className={styles.timer_button_container}>
+              <button className={styles.timer_button}><span>Start</span></button>
+              <button className={styles.timer_button}><span>Reset</span></button>
+            </div>
+            <div className={styles.sound_button_container}>
+              <button className={styles.sound_button}>Rain</button>
+              <button className={styles.sound_button}>Music</button>
+            </div>
+            
+            
           </div>
           <div className={styles.background_container}>
             <Image
