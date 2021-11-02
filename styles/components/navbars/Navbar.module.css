@@ -8,6 +8,7 @@
 
 .nav_elements {
     display: grid;
+    width: 2em;
     grid-template-columns: 5% 1fr 5%;
     height: 100%;
     align-items: center;
