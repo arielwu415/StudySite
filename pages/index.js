@@ -5,6 +5,19 @@ import Layout from '../components/layouts/Layout'
 import Navbar from '../components/navbars/Navbar'
 
 export default function Home() {
+  
+  function playRain() {
+    var myMusic = document.getElementById("rain");
+    //myMusic.volume = 0.2;
+    myMusic.loop = true;
+    return myMusic.paused ? myMusic.play() : myMusic.pause();
+  };
+
+  function playForest() {
+    var myMusic = document.getElementById("forest")
+    myMusic.loop = true;
+    return myMusic.paused ? myMusic.play() : myMusic.pause()
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -21,6 +34,15 @@ export default function Home() {
         <p id={styles.p} className={styles.description}>
           Get started by editing <code id={styles.code}>pages/index.js</code>
         </p>
+      
+        <div id = "image">
+          <img src="/rain.ico" id= {styles.rain} alt="Rain" onClick = {playRain} type="button"/>
+          <img src="/forest.ico" id = {styles.forest} alt="Forest" onClick = {playForest} type="button"/>
+        </div>
+        <audio id = "rain" src = "/weather.mp3" ></audio>
+
+        
+        <audio id = "forest" src = "/forest.mp3" ></audio>
 
         <div className={styles.grid}>
           <a id={styles.a} href="https://nextjs.org/docs" className={styles.card}>
@@ -81,6 +103,7 @@ export default function Home() {
         }
       `}</style>
     </div>
+  
   )
 }
 

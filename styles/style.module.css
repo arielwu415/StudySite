@@ -123,6 +123,24 @@
 .logo {
     height: 1em;
 }
+#rain, #forest {
+    align-content: center;
+    display:inline-block;
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 20px;
+    outline: 2.5px solid white;
+    width: 7.0em;
+    margin: 10px;
+   
+    
+}
+#image {
+    display: inline-block;
+    
+    
+}
+
 
 @media (max-width: 600px) {
     .grid {
