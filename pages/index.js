@@ -7,7 +7,6 @@ import Navbar from '../components/navbars/Navbar'
 import gsap from "gsap";
 
 export default function Home() {
-<<<<<<< HEAD
   
   function playRain() {
     var myMusic = document.getElementById("rain");
@@ -21,10 +20,9 @@ export default function Home() {
     myMusic.loop = true;
     return myMusic.paused ? myMusic.play() : myMusic.pause()
   }
-=======
 
-  // Toggle night background
   const [night, setNight] = useState(false)
+  const [start, setStart] = useState(false)
 
 
   // Landing Slider Animation
@@ -36,21 +34,16 @@ export default function Home() {
   let slider2 = useRef(null)
   let intro = useRef(null)
 
-  let mainContainer = useRef(null)
-
   useEffect(() => {
     tl.add('start')
       .to(firstLine, { y: "0%", duration: 1, delay: 0.25 }, 'start')
       .to(secondtLine, { y: "0%", duration: 1, delay: 0.5 }, 'start')
       .to(thirdLine, { y: "0%", duration: 1, delay: 0.75 }, 'start')
-      .to(slider1, { y: "-200%", duration: 3.75, delay: 2.75 }, 'start')
-      .to(slider2, { y: "-200%", duration: 3.5, delay: 2.75 }, 'start')
-      .to(intro, { y: "-120%", duration: 1.25, delay: 3.25 }, 'start')
-    tl.fromTo(mainContainer, { opacity: 0 }, { opacity: 1, duration: 0.75 }, "-=2")
+      .to(slider1, { y: "-100%", duration: 2.3, delay: 2.75 }, 'start')
+      .to(slider2, { y: "-100%", duration: 2.2, delay: 2.75 }, 'start')
+      .to(intro, { y: "-100%", duration: 1.25, delay: 3.25 }, 'start')
   })
 
-
->>>>>>> f9bd8cf (added landing animation)
   return (
     <div className={styles.container}>
       <Head>
@@ -60,19 +53,31 @@ export default function Home() {
 
       <Navbar onNightToggle={setNight} />
       <main id={styles.main}>
-        <div className={styles.main_container} ref={el => mainContainer = el}>
-          <div className={styles.timer}>
-            <span className={styles.digits}>0:00</span>
+        {
+          !start &&
+          <div className={styles.welcome}>
+            <div className={styles.welcome_msg}>
+              <h3><span>Welcome to</span></h3>
+              <h1><span>the StudySite</span></h1>
+            </div>
+            <button className={styles.main_button} onClick={() => setStart(true)}><span>Get Started</span></button>
           </div>
-          <div className={styles.timer_button_container}>
-            <button className={styles.timer_button}><span>Start</span></button>
-            <button className={styles.timer_button}><span>Reset</span></button>
-          </div>
-          <div className={styles.sound_button_container}>
-            <button className={styles.sound_button}>Rain</button>
-            <button className={styles.sound_button}>Music</button>
-          </div>
-        </div>
+        }
+        {
+          start &&
+          <div className={styles.main_container}>
+            <div className={styles.timer}>
+              <span className={styles.digits}>0:00</span>
+            </div>
+            <div className={styles.timer_button_container}>
+              <button className={styles.timer_button}>Start</button>
+              <button className={styles.timer_button}>Reset</button>
+            </div>
+            <div className={styles.sound_button_container}>
+              <button className={styles.sound_button}>Rain</button>
+              <button className={styles.sound_button}>Music</button>
+            </div>
+          </div> }
 
 
         {/*<p id={styles.p} className={styles.description}>*/}
@@ -119,42 +124,27 @@ export default function Home() {
         {/*    </p>*/}
         {/*  </a>*/}
         {/*</div>*/}
-
         <div className={styles.background_container}>
           {/* If not night, display sunset bcakground*/
             !night &&
-            <video autoPlay loop muted
-              id={styles.background}
-              style={{
-                position: "absolute",
-                width: "100%",
-                top: "50%",
-                left: "50%",
-                height: "100%",
-                objectFit: "cover",
-                transform: "translate(-50%, -50%)",
-                zIndex: "-1"
-              }}>
+            <video autoPlay loop muted className={styles.background}>
               <source src="/sunset.mp4" type="video/mp4" />
             </video>
           }
           {/* If night, display night bcakground*/
             night &&
-            <video autoPlay loop muted
-              id={styles.background}
-              style={{
-                position: "absolute",
-                width: "100%",
-                top: "50%",
-                left: "50%",
-                height: "100%",
-                objectFit: "cover",
-                transform: "translate(-50%, -50%)",
-                zIndex: "-1"
-              }}>
+            <video autoPlay loop muted className={styles.background}>
               <source src="/night.mp4" type="video/mp4" />
             </video>
           }
+        </div>
+        <div style={{
+          position: "absolute",
+          backgroundColor: "#3c515e",
+          zIndex: "-2",
+          width: "100%",
+          height: "100%"
+        }}>
         </div>
       </main>
 
@@ -190,7 +180,6 @@ export default function Home() {
       <style jsx global>{`
         html,
         body {
-            
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
                     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
                     sans-serif;
