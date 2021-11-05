@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import Head from 'next/head'
 import styles from '../styles/style.module.css'
 import Layout from '../components/layouts/Layout'
 import Navbar from '../components/navbars/Navbar'
+
 
 export default function Home() {
   
@@ -15,6 +16,12 @@ export default function Home() {
 
   function playForest() {
     var myMusic = document.getElementById("forest")
+    myMusic.loop = true;
+    return myMusic.paused ? myMusic.play() : myMusic.pause()
+  }
+
+  function playLofi() {
+    var myMusic = document.getElementById("lofi")
     myMusic.loop = true;
     return myMusic.paused ? myMusic.play() : myMusic.pause()
   }
@@ -74,6 +81,11 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
+
+          <div>
+            <button onClick = {playLofi}>Music!</button>
+          </div>
+          <audio id="lofi" src="/lofi.mp3"></audio>
         </div>
       </main>
 
