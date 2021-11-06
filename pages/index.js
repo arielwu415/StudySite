@@ -7,6 +7,19 @@ import Navbar from '../components/navbars/Navbar'
 import gsap from "gsap";
 
 export default function Home() {
+  
+  function playRain() {
+    var myMusic = document.getElementById("rain");
+    //myMusic.volume = 0.2;
+    myMusic.loop = true;
+    return myMusic.paused ? myMusic.play() : myMusic.pause();
+  };
+
+  function playForest() {
+    var myMusic = document.getElementById("forest")
+    myMusic.loop = true;
+    return myMusic.paused ? myMusic.play() : myMusic.pause()
+  }
 
   const [night, setNight] = useState(false)
   const [start, setStart] = useState(false)
@@ -30,8 +43,6 @@ export default function Home() {
       .to(slider2, { y: "-100%", duration: 2.2, delay: 2.75 }, 'start')
       .to(intro, { y: "-100%", duration: 1.25, delay: 3.25 }, 'start')
   })
-
-
 
   return (
     <div className={styles.container}>
@@ -66,9 +77,53 @@ export default function Home() {
               <button className={styles.sound_button}>Rain</button>
               <button className={styles.sound_button}>Music</button>
             </div>
-          </div>
-        }
+          </div> }
 
+
+        {/*<p id={styles.p} className={styles.description}>*/}
+        {/*  Get started by editing <code id={styles.code}>pages/index.js</code>*/}
+        {/*</p>*/}
+
+        {/*<div id = "image">*/}
+        {/*  <img src="/rain.ico" id= {styles.rain} alt="Rain" onClick = {playRain} type="button"/>*/}
+        {/*  <img src="/forest.ico" id = {styles.forest} alt="Forest" onClick = {playForest} type="button"/>*/}
+        {/*</div>*/}
+        {/*<audio id = "rain" src = "/weather.mp3" ></audio>*/}
+
+        
+        {/*<audio id = "forest" src = "/forest.mp3" ></audio>*/}
+
+        {/*<div className={styles.grid}>*/}
+        {/*  <a id={styles.a} href="https://nextjs.org/docs" className={styles.card}>*/}
+        {/*    <h3 id={styles.h3}>Documentation &rarr;</h3>*/}
+        {/*    <p id={styles.p}>Find in-depth information about Next.js features and API.</p>*/}
+        {/*  </a>*/}
+
+        {/*  <a id={styles.a} href="https://nextjs.org/learn" className={styles.card}>*/}
+        {/*    <h3 id={styles.h3}>Learn &rarr;</h3>*/}
+        {/*    <p id={styles.p}>Learn about Next.js in an interactive course with quizzes!</p>*/}
+        {/*  </a>*/}
+
+        {/*  <a*/}
+        {/*    id={styles.a}*/}
+        {/*    href="https://github.com/vercel/next.js/tree/master/examples"*/}
+        {/*    className={styles.card}*/}
+        {/*  >*/}
+        {/*    <h3 id={styles.h3}>Examples &rarr;</h3>*/}
+        {/*    <p id={styles.p}>Discover and deploy boilerplate example Next.js projects.</p>*/}
+        {/*  </a>*/}
+
+        {/*  <a*/}
+        {/*    id={styles.a}*/}
+        {/*    href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"*/}
+        {/*    className={styles.card}*/}
+        {/*  >*/}
+        {/*    <h3 id={styles.h3}>Deploy &rarr;</h3>*/}
+        {/*    <p id={styles.p}>*/}
+        {/*      Instantly deploy your Next.js site to a public URL with Vercel.*/}
+        {/*    </p>*/}
+        {/*  </a>*/}
+        {/*</div>*/}
         <div className={styles.background_container}>
           {/* If not night, display sunset bcakground*/
             !night &&
@@ -137,6 +192,7 @@ export default function Home() {
         }
       `}</style>
     </div>
+  
   )
 }
 
