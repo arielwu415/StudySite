@@ -124,6 +124,7 @@ export default function Home() {
         {/*    </p>*/}
         {/*  </a>*/}
         {/*</div>*/}
+        
         <div className={styles.background_container}>
           {/* If not night, display sunset bcakground*/
             !night &&
