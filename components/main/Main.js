@@ -1,4 +1,5 @@
 import styles from '../../styles/style.module.scss'
+import Music from '../music/Music'
 
 export default function Main({start, night, setStart}) {
    return (
@@ -11,6 +12,7 @@ export default function Main({start, night, setStart}) {
               <h1><span>the StudySite</span></h1>
             </div>
             <button className={styles.main_button} onClick={() => setStart(true)}><span>Get Started</span></button>
+            
           </div>
         }
         {
@@ -23,12 +25,14 @@ export default function Main({start, night, setStart}) {
               <button className={styles.timer_button}>Start</button>
               <button className={styles.timer_button}>Reset</button>
             </div>
+           
             <div className={styles.sound_button_container}>
-              <button className={styles.sound_button}>Rain</button>
+              
+              <Music />
               <button className={styles.sound_button}>Music</button>
             </div>
           </div> }
-
+          
           <div className={styles.background_container}>
           {/* If not night, display sunset bcakground*/
             !night &&
@@ -43,6 +47,7 @@ export default function Main({start, night, setStart}) {
             </video>
           }
         </div>
+        
         <div style={{
           position: "absolute",
           backgroundColor: "#3c515e",
