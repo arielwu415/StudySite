@@ -1,10 +1,9 @@
 import Head from 'next/head'
-import Main from '../components/Main/Main'
+import Main from '../components/main/Main'
 import Intro from '../components/intro/Intro'
 import Layout from '../components/layouts/Layout'
 import styles from '../styles/style.module.scss'
 import Navbar from '../components/navbars/Navbar'
-import Music from '../components/music/Music'
 import GlobalStlye from '../components/pageStyles/GlobalStyle'
 import PageStyle from '../components/pageStyles/PageStyle'
 
