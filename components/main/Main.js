@@ -27,9 +27,8 @@ export default function Main({start, night, setStart}) {
             </div>
            
             <div className={styles.sound_button_container}>
-              
-              <Music />
-              <button className={styles.sound_button}>Music</button>
+              <Music id="rain" imgsrc="/rain.ico" src="/weather.mp3" volume={0.3} />
+              <Music id="music" imgsrc="/music.ico" src="/lofi.mp3" alt="Music" volume={0.02}/>
             </div>
           </div> }
           

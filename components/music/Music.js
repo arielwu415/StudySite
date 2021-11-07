@@ -1,27 +1,20 @@
 import styles from '../../styles/style.module.scss';
 
-export default function Music() {
+export default function Music({id, src, imgsrc, alt, volume}) {
   
-    function playRain() {
-        var myMusic = document.getElementById("rain");
-       // myMusic.volume = 0.2;
+    function playMusic() {
+        var myMusic = document.getElementById(id);
+        myMusic.volume = parseFloat(volume);
         myMusic.loop = true;
         return myMusic.paused ? myMusic.play() : myMusic.pause();
       };
     
-      function playForest() {
-        var myMusic = document.getElementById("forest")
-        myMusic.loop = true;
-        return myMusic.paused ? myMusic.play() : myMusic.pause()
-      }
       return (
         <>
         <div id = "image">
-          <img src="/rain.ico" id= {styles.rain} onClick = {playRain} type="button" />
-          {/* <img src="../../public/forest.ico" id = {styles.forest} alt="Forest" onClick = {playForest} type="button"/> */}
+          <img src={imgsrc} id={styles.rain} onClick = {playMusic} alt={alt} type="button" />
         </div>
-        <audio id = "rain" src = "/weather.mp3" ></audio>
-        {/* <audio id = "forest" src = "../../public/forest.mp3" ></audio> */}
+        <audio id = {id} src = {src} ></audio>
         </>
     
       )
