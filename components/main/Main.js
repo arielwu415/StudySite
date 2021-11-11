@@ -1,5 +1,6 @@
 import styles from '../../styles/style.module.scss'
 import Music from '../music/Music'
+import Timer from '../timer/Timer'
 
 export default function Main({start, night, setStart}) {
    return (
@@ -18,14 +19,7 @@ export default function Main({start, night, setStart}) {
         {
           start &&
           <div className={styles.main_container}>
-            <div className={styles.timer}>
-              <span className={styles.digits}>0:00</span>
-            </div>
-            <div className={styles.timer_button_container}>
-              <button className={styles.timer_button}>Start</button>
-              <button className={styles.timer_button}>Reset</button>
-            </div>
-           
+            <Timer />
             <div className={styles.sound_button_container}>
               <Music id="rain" imgsrc="/rain.ico" src="/weather.mp3" volume={0.3} />
               <Music id="music" imgsrc="/music.ico" src="/lofi.mp3" alt="Music" volume={0.02}/>
