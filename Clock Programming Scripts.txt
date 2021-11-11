@@ -1,4 +1,4 @@
-﻿Clock Programming Scripts
+Clock Programming Scripts
 
 
 HTML
@@ -15,7 +15,7 @@ HTML
 </head>
 <body>
         <div class="clock">
-    
+
             <span class="clock-time"></span>
         <span class="clock-ampm"></span>
 
@@ -60,29 +60,29 @@ class DigitalClock
     {
             this.element = element;
     }
-    
+
     start()
     {
             this.update();
-        
+
         setInterval(() => {
                 this.update();
         }, 500);
     }
-    
+
     update()
     {
             const parts = this.getTimeParts();
         const minuteFormatted = parts.minute.toString().padStart(2, "0");
         const timeFormatted = '${parts.hour}:$(minuteFormatted}';
         const amPm = parts.isAm ? "AM" : "PM";
-        
+
         this.element.querySelector(".clock-time").textContent = timeFormatted;
         this.element.querySelector(".clock-ampm ").textContent = amPm;
 
 
     }
-    
+
     getTimeParts()
     {
             const now = new Data();
