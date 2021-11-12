@@ -1,0 +1,56 @@
+// .digits {
+//     width: 75%;
+//     height: 12vh;
+//     text-align: center;
+//     font-size: 48px;
+//     background-color: beige;
+//     border-radius: 20px;
+//     margin-bottom: 30px;
+// }
+
+.timer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.digit_container {
+    width: 75%;
+    height: 12vh;
+    text-align: center;
+    background-color: beige;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    span {
+        font-size: 48px;
+    }
+}
+
+.timer_button_container {
+    margin: 0;
+    width: 75%;
+    height: 10vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.timer_button {
+    width: 40%;
+    height: 70%;
+    font-size: 18px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    z-index: 1;
+    transition: 0.2s;
+    &:hover {
+        cursor: pointer;
+    }
+    
+}
