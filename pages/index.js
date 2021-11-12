@@ -17,7 +17,6 @@ export default function Home() {
   const [showModal, setShowModal] = useState(false)
 
   return (
-   
     <div className={styles.container}>
       <GlobalStlye />
       <PageStyle />
@@ -27,8 +26,8 @@ export default function Home() {
       </Head>
       <Intro />
       <Navbar onNightToggle={setNight} />
-      <Main start={start} night={night} setStart={setStart} setShowModal={setShowModal}/>
-      <ModalBox showModal={showModal} setShowModal={setShowModal}/>
+      <Main start={start} night={night} setStart={setStart} setShowModal={setShowModal} />
+      <ModalBox showModal={showModal} setShowModal={setShowModal} />
     </div>
   )
 }
