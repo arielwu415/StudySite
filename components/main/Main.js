@@ -2,7 +2,7 @@ import styles from '../../styles/style.module.scss'
 import Music from '../music/Music'
 import Timer from '../timer/Timer'
 
-export default function Main({start, night, setStart}) {
+export default function Main({start, night, setStart, setShowModal}) {
    return (
     <main id={styles.main}>
         {
@@ -19,7 +19,7 @@ export default function Main({start, night, setStart}) {
         {
           start &&
           <div className={styles.main_container}>
-            <Timer />
+            <Timer onModalToggle={setShowModal}/>
             <div className={styles.sound_button_container}>
               <Music id="rain" imgsrc="/rain.ico" src="/weather.mp3" volume={0.3} />
               <Music id="music" imgsrc="/music.ico" src="/lofi.mp3" alt="Music" volume={0.02}/>
