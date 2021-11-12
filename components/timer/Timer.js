@@ -1,42 +1,59 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import styles from '../../styles/components/timer/Timer.module.scss'
+import ModalBox from "../cards/ModalBox";
 
-export default function Timer({ onModalToggle }) {
+export default function Timer() {
+    const [time, setTime] = useState(0)
+    const [timerOn, setTimerOn] = useState(false)
+    const [showModal, setShowModal] = useState(false)
 
     const handleShowModal = useCallback(e => {
-        onModalToggle(e.target)
-    }, [onModalToggle])
+        setShowModal(e.target)
+    }, [setShowModal])
 
-    // const startingMinutes = 10;
-    // let time = startingMinutes * 60;
+    useEffect(() => {
+        let interval = null; 
+        if(timerOn && time > 0) {
+            interval = setInterval(() => {
+                setTime(prevTime => prevTime - 10)
+            }, 10)
+        }
+        else {
+            clearInterval(interval)
+        }
 
-    // const countdownEl = document.getElementById('countdown');
+        return () => clearInterval(interval)
+    }, [timerOn])
 
-    // setInterval(updateCountdown, 1000);
-
-    // function updateCountdown()
-    // {
-
-    //     const minutes = Math.floor(time/60);
-    //     let seconds = time % 60;
-
-    //     seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    //     countdownEl.innerHTML = '${minutes}: ${seconds}';
-    //     time--;
-    // }
-
-
-    return (
+    return ( 
+        <>
         <div className={styles.timer}>
             <div className={styles.digit_container}>
-                <span id="countdown">0:00</span>
+                <span id="countdown">{( "0" + Math.floor((time / 60000) % 60)).slice(-2)}: </span>
+                <span id="countdown">{( "0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
+                <span id="countdown">{( "0" + (time / 10) % 100).slice(-2)}</span>
             </div>
+        
             <div className={styles.timer_button_container}>
-                <button className={styles.timer_button} onClick={handleShowModal}>Set Time</button>
-                <button className={styles.timer_button}>Reset</button>
+                {(!timerOn && time == 0)&& (
+                    <button className={styles.timer_button} onClick={handleShowModal}>Set Time</button>
+                )}
+                {timerOn && (
+                    <button className={styles.timer_button} onClick={()=> setTimerOn(false)}>Stop</button>
+                )}
+                {(!timerOn && time > 0) && (
+                     <button className={styles.timer_button} onClick={()=> setTimerOn(true)}>Start</button>
+                )}
+                {(!timerOn && time > 0) && (
+                    <button className={styles.timer_button} onClick={()=> setTime(0)}>Reset</button>
+                )}
+               
+                
+                
             </div>
         </div>
+        <ModalBox showModal={showModal} setShowModal={setShowModal} time = {time} setTime={setTime}/>
+        </>
     )
 }
 
