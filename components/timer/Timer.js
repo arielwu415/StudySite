@@ -35,7 +35,7 @@ export default function Timer() {
             </div>
         
             <div className={styles.timer_button_container}>
-                {(!timerOn && time == 0)&& (
+                {(!timerOn && time <= 0)&& (
                     <button className={styles.timer_button} onClick={handleShowModal}>Set Time</button>
                 )}
                 {timerOn && (
@@ -46,10 +46,10 @@ export default function Timer() {
                 )}
                 {(!timerOn && time > 0) && (
                     <button className={styles.timer_button} onClick={()=> setTime(0)}>Reset</button>
+                )} 
+                {(timerOn && time <= 0)&& (
+                    setTimerOn(false)
                 )}
-               
-                
-                
             </div>
         </div>
         <ModalBox showModal={showModal} setShowModal={setShowModal} time = {time} setTime={setTime}/>

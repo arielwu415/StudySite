@@ -3,7 +3,7 @@ import styles from '../../styles/components/cards/Modal.module.scss'
 export default function ModalBox({ showModal, setShowModal, setTime, time}) {
    
     const getTimeInput = async (e) => {
-        console.log(time)
+        setShowModal(false)
         return ({time})
     }
 
