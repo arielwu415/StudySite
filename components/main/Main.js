@@ -4,7 +4,7 @@ import Music from '../music/Music'
 import Timer from '../timer/Timer'
 import gsap from 'gsap'
 
-export default function Main({ start, night, setStart, setShowModal }) {
+export default function Main({ start, night, setStart }) {
 
   const animation = gsap.timeline({ defaults: { ease: "power1.out" } });
   let dayVideo = useRef(null)
@@ -32,7 +32,7 @@ export default function Main({ start, night, setStart, setShowModal }) {
       {
         start &&
         <div className={styles.main_container}>
-          <Timer onModalToggle={setShowModal} />
+          <Timer />
           <div className={styles.sound_button_container}>
             <Music id="rain" imgsrc="/rain.ico" src="/weather.mp3" volume={0.2} />
             <Music id="music" imgsrc="/music.ico" src="/lofi.mp3" alt="Music" volume={0.4} />
