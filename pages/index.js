@@ -10,6 +10,7 @@ import ModalBox from '../components/cards/ModalBox'
 
 import { useState } from 'react'
 
+
 export default function Home() {
   const [night, setNight] = useState(false)
   const [start, setStart] = useState(false)
