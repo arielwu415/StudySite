@@ -4,15 +4,17 @@ import Music from '../music/Music'
 import Timer from '../timer/Timer'
 import gsap from 'gsap'
 
-export default function Main({ start, night, setStart }) {
+export default function Main({ start, night, animationOn, setStart }) {
 
   const animation = gsap.timeline({ defaults: { ease: "power1.out" } });
   let dayVideo = useRef(null)
-  const master = gsap.timeline({ paused: true }); //create a paused timeline
+  
 
   useEffect(() => {
-    animation.fromTo(dayVideo, { opacity: night ? "100%" : "0%" }, { opacity: night ? "0%" : "100", duration: 1.2 })
-    console.log(animation)
+    if (animationOn) {
+      animation.fromTo(dayVideo, { opacity: night ? "100%" : "0%" }, { opacity: night ? "0%" : "100", duration: 1.2 })
+      console.log(animation)
+    }
   })
 
 
