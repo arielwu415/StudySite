@@ -30,7 +30,12 @@
         color:white;
         background-color: #cc6c35;
         font-size: 15px;
-        cursor: pointer;
+        transition: 0.2s ease-in-out;
+        &:hover{
+            background-color: white;
+            color: #3c515e;
+            cursor: pointer;
+        }
     }
 }
 

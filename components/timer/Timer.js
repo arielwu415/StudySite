@@ -29,14 +29,17 @@ export default function Timer() {
         <>
         <div className={styles.timer}>
             <div className={styles.digit_container}>
-                <span id="countdown">{( "0" + Math.floor((time / 60000) % 60)).slice(-2)}: </span>
-                <span id="countdown">{( "0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
-                <span id="countdown">{( "0" + (time / 10) % 100).slice(-2)}</span>
+                <span id="countdown">{( "0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+                <span id="countdown">{( "0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+                {/* <span id="countdown">{( "0" + (time / 10) % 100).slice(-2)}</span> */}
             </div>
         
             <div className={styles.timer_button_container}>
-                {(!timerOn && time <= 0)&& (
+                {(!timerOn && time <= 0) && (
                     <button className={styles.timer_button} onClick={handleShowModal}>Set Time</button>
+                )}
+                {(!timerOn && time <= 0) && (
+                    <button className={styles.timer_button} id={styles.inactive}>Reset</button>
                 )}
                 {timerOn && (
                     <button className={styles.timer_button} onClick={()=> setTimerOn(false)}>Stop</button>
@@ -45,7 +48,7 @@ export default function Timer() {
                      <button className={styles.timer_button} onClick={()=> setTimerOn(true)}>Start</button>
                 )}
                 {(!timerOn && time > 0) && (
-                    <button className={styles.timer_button} onClick={()=> setTime(0)}>Reset</button>
+                    <button className={styles.timer_button} id={styles.reset} onClick={()=> setTime(0)}>Reset</button>
                 )} 
                 {(timerOn && time <= 0)&& (
                     setTimerOn(false)
