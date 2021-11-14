@@ -1,12 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import styles from '../../styles/components/cards/Modal.module.scss'
-
-export default function ModalBox({ showModal, setShowModal }) {
-
-    const [time, setTime] = useState(null)
-
+export default function ModalBox({ showModal, setShowModal, setTime, time}) {
+   
     const getTimeInput = async (e) => {
-        console.log(time)
+        setShowModal(false)
         return ({time})
     }
 
@@ -21,7 +18,7 @@ export default function ModalBox({ showModal, setShowModal }) {
                                 <span>How long do you want to be focused for?</span>
                             </div>
                             <div className={styles.input_area}>
-                                <input type="text" className={styles.input} onChange={e => setTime(e.target.value)}></input>
+                                <input type="text" className={styles.input} onChange={e => setTime(e.target.value * 60000)}></input>
                                 <span>minutes</span>
                             </div>
                             <button onClick={getTimeInput}>OK</button>
