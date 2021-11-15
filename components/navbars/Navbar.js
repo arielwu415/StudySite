@@ -6,6 +6,7 @@ export default function Navbar({ onNightToggle, setAnimationOn }) {
 
     const handleToggle = useCallback(e => {
         onNightToggle(e)
+        setAnimationOn(true)
     }, [onNightToggle])
     
     const setNoAnimation = useCallback(()=>{

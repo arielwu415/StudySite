@@ -44,6 +44,9 @@ export default function Timer() {
                 {timerOn && (
                     <button className={styles.timer_button} onClick={()=> setTimerOn(false)}>Stop</button>
                 )}
+                {timerOn && (
+                    <button className={styles.timer_button} id={styles.inactive}>Reset</button>
+                )}
                 {(!timerOn && time > 0) && (
                      <button className={styles.timer_button} onClick={()=> setTimerOn(true)}>Start</button>
                 )}

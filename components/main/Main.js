@@ -36,7 +36,7 @@ export default function Main({ start, night, animationOn, setStart }) {
         <div className={styles.main_container}>
           <Timer />
           <div className={styles.sound_button_container}>
-            <Music id="rain" imgsrc="/rain.ico" src="/weather.mp3" volume={0.2} />
+            <Music id="rain" imgsrc="/rain.ico" src="/weather.mp3" volume={0.3} />
             <Music id="music" imgsrc="/music.ico" src="/lofi.mp3" alt="Music" volume={0.4} />
           </div>
         </div>}
