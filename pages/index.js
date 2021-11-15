@@ -13,7 +13,8 @@ import { useState } from 'react'
 export default function Home() {
   const [night, setNight] = useState(false)
   const [start, setStart] = useState(false)
-
+  const [animationOn, setAnimationOn] = useState(false)
+  
   return (
     <div className={styles.container}>
       <GlobalStlye />
@@ -23,8 +24,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Intro />
-      <Navbar onNightToggle={setNight} />
-      <Main start={start} night={night} setStart={setStart}/>
+      <Navbar onNightToggle={setNight} setAnimationOn={setAnimationOn}/>
+      <Main start={start} night={night} animationOn={animationOn} setStart={setStart}/>
     </div>
   )
 }
